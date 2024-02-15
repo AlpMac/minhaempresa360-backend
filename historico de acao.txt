@@ -1,0 +1,91 @@
+Instalar o GIT no windows para fazer a conecção com o GITHUB 
+fazer configuracao do user.name e user.email para os commit 
+
+
+Conectar
+git remote add origin https://github.com/AlpMac/MinhaEmpresa360.git     
+Conectar
+ git branch -M main
+Enviar
+ git push -u origin main
+Forca o envio ignora todas as diferencas 
+git push -f origin main
+
+
+07/02/2024
+Pesquisa realizda para buscar formas de garantir que os dados inseridos nao seja alguma forma de injecção sql
+Achei : https://express-validator.github.io/docs/guides/field-selection
+validador do proprio express que confirma o tipo de dados que esta sendo passado e verifica automaticamente
+
+npm install express-validator
+
+PARA DEPOIS ESTUDAR proteção CSRF minha aplicacao 
+
+08/02/2024 - Criado tabela tbl_cliente ,tbl_servico , tbl_servico_produto_usado , tbl_produtos
+08/02/2024 - Adicionado JSON FORMATTER para visualizar JSON navegador
+
+08/02/2024 23:12 - Foi observado a necessidade de 3 tabelas para cadastrar o item que sera realizado o tbl_servico
+e nele vai existir suas varições tipos e material
+
+Instalando POSTAMAN Simular requisicao json
+
+==== teste usando postman da rota 
+/salvar-servico
+body>raw>JSON
+{
+    "data_servico": "01/01/2024",
+    "valor": 100.00,
+    "observacao": "Serviço de manutenção",
+    "cliente_id": 123,
+    "hora_marcada": "09:00",
+    "usuario_id": 456
+} TEST OK SEVICO INSERIDO
+
+
+/salvar-servico-item-contratado
+body>raw>JSON
+{
+    "id_servico": 1,
+    "id_itemDoServico": 1,
+    "id_variacaoItemDoServico": 1,
+    "id_tipoItemDoServico": 1,
+    "id_materialItemDoServico": 1
+
+} TEST OK ITENS DO SERVICO ADICIONADO COM SUCESS
+
+/alterar-servico-exluir-item-contratado
+body>raw>JSON
+{
+    "id": 3
+    
+} TESTE OK ITEM do servico excluido com sucesso
+
+/salvar-produto-usando
+body>raw>JSON
+  {
+      
+      "id_tbl_servico": 1,
+      "id_item_servico": 1,
+      "qtd_usada": 1
+    } TEST OK FOI ADICIONADO UM PRODUTO usando
+
+/excluir-produto-usando
+bodu>raw>JSON
+  {
+      
+     "id" : 1
+    } TEST OK FOI EXCLUIDO O PRODUTO usando
+/salvar-cliente
+body>raw>JSON
+ {
+   "nome": "João Silva",
+    "cidade": "São Paulo",
+    "bairro": "Centro",
+    "rua": 123,
+    "numero": 456,
+    "email": "joao.silva@example.com",
+    "telefone": 123456789
+    } TESTE OK FOI ADICIONADO UM NOVO USUARIO
+
+GET /servico
+Query retornando TEST OK 
