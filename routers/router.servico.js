@@ -13,6 +13,7 @@ routeServico.get("/", (req, res) => {
                 c.numero,
                 c.cidade,
                 c.nome AS nome_cliente,
+                c.telefone,
                 u.nome AS nome_atendente
               FROM 
                 tbl_servico AS s
