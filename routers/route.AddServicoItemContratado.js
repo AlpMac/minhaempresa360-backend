@@ -1,7 +1,7 @@
 //iremos importar um validador de dados para verificar se os dados enviados pelo usuario estao corretos
 import { body, validationResult } from 'express-validator';
 import Router from 'express';
-import { db } from '../../MinhaEmpresa360_/src/config/database.js';
+import database from '../config/database.js';
 
 const routeAddServicoItemContratado = Router();
   
@@ -30,7 +30,7 @@ routeAddServicoItemContratado.post("/salvar-servico-item-contratado",validateDat
 
     //req.body é desestruturado para extrair os campos necessários para inserção na tabela.
     //executando a query de select
-    db.all(query,[parametro.id_servico, 
+    database.db.all(query,[parametro.id_servico, 
                   parametro.id_itemDoServico,
                   parametro.id_variacaoItemDoServico,
                   parametro.id_tipoItemDoServico,

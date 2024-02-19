@@ -1,7 +1,7 @@
 //iremos importar um validador de dados para verificar se os dados enviados pelo usuario estao corretos
 import { body, validationResult } from 'express-validator';
 import Router from 'express';
-import { db } from '../../MinhaEmpresa360_/src/config/database.js';
+import database from '../config/database.js';
 
 const routeAddCliente = Router();
 //Middleware para verificar os dados enviados pelo usuario contra injecao de codigo
@@ -32,7 +32,7 @@ routeAddCliente.post("/salvar-cliente",validateData, (req, res) => {
 
     //req.body é desestruturado para extrair os campos necessários para inserção na tabela.
     //executando a query de select
-    db.all(query,[parametro.nome, 
+    database.db.all(query,[parametro.nome, 
                   parametro.cidade,
                   parametro.bairro,
                   parametro.rua,

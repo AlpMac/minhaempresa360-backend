@@ -1,7 +1,7 @@
 //iremos importar um validador de dados para verificar se os dados enviados pelo usuario estao corretos
 import { body, validationResult } from 'express-validator';
 import Router from 'express';
-import { db } from '../../MinhaEmpresa360_/src/config/database.js';
+import database from '../config/database.js';
 
 const routeDellServicoProdutoUsado = Router();
   
@@ -27,7 +27,7 @@ routeDellServicoProdutoUsado.post("/excluir-produto-usado",validateData, (req, r
 
     //req.body é desestruturado para extrair os campos necessários para inserção na tabela.
     //executando a query de select
-    db.all(query,[parametro.id 
+    database.db.all(query,[parametro.id 
                   
                  ],function(err,rows){
       if(err){
