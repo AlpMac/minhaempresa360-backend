@@ -1,26 +1,17 @@
 import Router from 'express';
 import database from '../config/database.js';
 
-const routeServico = Router();
+const routeboxDeDados = Router();
 
-routeServico.get("/box-dados", (req, res) => {
+routeboxDeDados.get("/box-dados", (req, res) => {
     let query = `SELECT 
-                s.id AS id_servico,
-                strftime('%d/%m/%Y',s.data_servico) as data_servico,
-                s.valor,
-                s.hora_marcada,
-                c.rua,
-                c.numero,
-                c.cidade,
-                c.nome AS nome_cliente,
-                c.telefone,
-                u.nome AS nome_atendente
-              FROM 
-                tbl_servico AS s
-              JOIN 
-                tbl_clientes AS c ON s.cliente_id = c.id
-              JOIN
-                tbl_usuarios AS u ON s.usuario_id = u.id;`;
+                status_servico,
+                COUNT(*) AS total,
+                'R$ ' || FORMAT(SUM(valor), 2) AS total_valor_formatado
+                    FROM 
+                        tbl_servico
+                    GROUP BY 
+                        status_servico ;`;
 
     //executando a query de select
     database.db.all(query,[],function(err,rows){
@@ -34,4 +25,4 @@ routeServico.get("/box-dados", (req, res) => {
     });  
 });
 
-export default routeServico;
+export default routeboxDeDados;

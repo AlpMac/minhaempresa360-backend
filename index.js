@@ -10,6 +10,7 @@ import routeDellServicoItemContratado from "./routers/route.DellServicoItemContr
 import routeDellServicoProdutoUsado from "./routers/route.DellServicoProdutoUsado.js";
 import routeAddServicoItemContratado from "./routers/route.AddServicoItemContratado.js";
 import routeServico from "./routers/router.servico.js";
+import routeboxDeDados from "./routers/route.boxDeDados.js";
 
 
 
@@ -30,6 +31,7 @@ app.use(routeDellServicoItemContratado); // test OK
 app.use(routeAddCliente); //teste ok 
 
 app.use(routeAddServico); // Teste OKs
+app.use(routeboxDeDados); // test ok 
 
 
 

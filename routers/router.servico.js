@@ -14,13 +14,15 @@ routeServico.get("/", (req, res) => {
                 c.cidade,
                 c.nome AS nome_cliente,
                 c.telefone,
-                u.nome AS nome_atendente
+                u.nome AS nome_atendente,
+                s.status_servico
               FROM 
                 tbl_servico AS s
               JOIN 
                 tbl_clientes AS c ON s.cliente_id = c.id
               JOIN
-                tbl_usuarios AS u ON s.usuario_id = u.id;`;
+                tbl_usuarios AS u ON s.usuario_id = u.id
+              WHERE status_servico = 'A';`;
 
     //executando a query de select
     database.db.all(query,[],function(err,rows){
