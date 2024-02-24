@@ -50,6 +50,7 @@ routeverificaLoginGeratoken.post("/Verifica-Login", [
 
         const token = gerarToken({ userId: rows[0].id });
         const id = rows[0].id;
+      
         return res.status(200).json({ token, userId:id });
     });
 });

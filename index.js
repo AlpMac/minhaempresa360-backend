@@ -12,6 +12,7 @@ import routeAddServicoItemContratado from "./routers/route.AddServicoItemContrat
 import routeServico from "./routers/router.servico.js";
 import routeboxDeDados from "./routers/route.boxDeDados.js";
 import routeverificaLoginGeratoken from "./routers/route.verficaLoginGeraToken.js";
+import routeSalvarTokenBD from "./routers/route.SalvarTokenBD.js";
 
 
 
@@ -34,7 +35,8 @@ app.use(routeAddCliente); //teste ok
 app.use(routeAddServico); // Teste OKs
 app.use(routeboxDeDados); // test ok 
 
-app.use(routeverificaLoginGeratoken); 
+app.use(routeverificaLoginGeratoken); //OK
+app.use(routeSalvarTokenBD); 
 
 
 
