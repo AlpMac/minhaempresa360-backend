@@ -3,7 +3,7 @@ import database from '../config/database.js';
 
 const routeServicoCancelar = Router();
 
-routeServicoCancelar.post("/", (req, res) => {
+routeServicoCancelar.put("/servico-cancelar", (req, res) => {
   const { id_servico } = req.body;
 
   if (!id_servico) {
