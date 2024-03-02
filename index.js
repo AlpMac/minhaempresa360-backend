@@ -13,6 +13,7 @@ import routeServico from "./routers/router.servico.js";
 import routeboxDeDados from "./routers/route.boxDeDados.js";
 import routeverificaLoginGeratoken from "./routers/route.verficaLoginGeraToken.js";
 import routeSalvarTokenBD from "./routers/route.SalvarTokenBD.js";
+import routeServicoCancelar from "./routers/route.servicoCancelar.js";
 
 
 
@@ -37,6 +38,7 @@ app.use(routeboxDeDados); // test ok
 
 app.use(routeverificaLoginGeratoken); //OK
 app.use(routeSalvarTokenBD); 
+app.use(routeServicoCancelar); //teste ok
 
 
 
