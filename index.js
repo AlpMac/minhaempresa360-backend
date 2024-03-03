@@ -14,6 +14,7 @@ import routeboxDeDados from "./routers/route.boxDeDados.js";
 import routeverificaLoginGeratoken from "./routers/route.verficaLoginGeraToken.js";
 import routeSalvarTokenBD from "./routers/route.SalvarTokenBD.js";
 import routeServicoCancelar from "./routers/route.servicoCancelar.js";
+import buscaServicoConcluido from "./routers/route.buscaServicoConcluido.js";
 
 
 
@@ -40,6 +41,7 @@ app.use(routeverificaLoginGeratoken); //OK
 app.use(routeSalvarTokenBD); 
 app.use(routeServicoCancelar); //teste ok
 
+app.use(buscaServicoConcluido); //teste ok
 
 
 
