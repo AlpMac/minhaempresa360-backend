@@ -1,9 +1,9 @@
 import Router from 'express';
 import database from '../config/database.js';
 
-const buscaServicoConcluido = Router();
-// ATENDIMENTO S igual a SALVO - EXECUTADO
-buscaServicoConcluido.get("/busca-atendimento-realizado", (req, res) => {
+const buscaServicoCancelado = Router();
+// ATENDIMENTO C igual a cancelado
+buscaServicoCancelado.get("/busca-cancelamento-realizado", (req, res) => {
 
 
     let query = `SELECT 
@@ -24,7 +24,7 @@ buscaServicoConcluido.get("/busca-atendimento-realizado", (req, res) => {
                 tbl_clientes AS c ON s.cliente_id = c.id
               JOIN
                 tbl_usuarios AS u ON s.usuario_id = u.id
-              WHERE status_servico = 'S' ;`;
+              WHERE status_servico = 'C' ;`;
 
     //executando a query de select
     database.db.all(query,[],function(err,rows){
@@ -38,4 +38,4 @@ buscaServicoConcluido.get("/busca-atendimento-realizado", (req, res) => {
     });  
 });
 
-export default buscaServicoConcluido;
+export default buscaServicoCancelado;
