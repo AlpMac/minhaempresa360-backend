@@ -22,7 +22,7 @@ routeAddCliente.post("/salvar-cliente",validateData, (req, res) => {
  // Verifica se houve erros de validação
  const errors = validationResult(validateData);
  if (!errors.isEmpty()) {
-     return res.status(400).json({ errors: "Dados invalidos" + errors.array() });
+     return res.status(400).json({ errors: "Dados invalidos, preencha os dados corretamente" + errors.array() });
  }
 
     let query = `INSERT INTO tbl_clientes (nome, cidade, bairro, rua, numero, email, telefone) 
@@ -32,7 +32,7 @@ routeAddCliente.post("/salvar-cliente",validateData, (req, res) => {
 
     //req.body é desestruturado para extrair os campos necessários para inserção na tabela.
     //executando a query de select
-    database.db.all(query,[parametro.nome, 
+    database.db.all(query,[parametro.nomeCliente, 
                   parametro.cidade,
                   parametro.bairro,
                   parametro.rua,
