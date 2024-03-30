@@ -16,7 +16,7 @@ import routeSalvarTokenBD from "./routers/route.SalvarTokenBD.js";
 import routeServicoCancelar from "./routers/route.servicoCancelar.js";
 import buscaServicoConcluido from "./routers/route.buscaServicoConcluido.js";
 import buscaServicoCancelado from "./routers/route.buscaCancelamentoRealizado.js";
-
+import routeAddProduto from "./routers/route.AddProdutos.js";
 
 
 
@@ -44,7 +44,7 @@ app.use(routeServicoCancelar); //teste ok
 
 app.use(buscaServicoConcluido); //teste ok
 app.use(buscaServicoCancelado); //teste ok
-
+app.use(routeAddProduto); //teste ok
 
 
 //Porta que o servidor irá levantar
