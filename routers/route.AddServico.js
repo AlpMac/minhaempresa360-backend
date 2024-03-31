@@ -24,8 +24,8 @@ routeAddServico.post("/salvar-servico",validateData, (req, res) => {
         return res.status(400).json({ errors:  errors.array() });
     }
 
-    let query = `INSERT INTO tbl_servico (data_servico, valor, observacao, cliente_id, hora_marcada, usuario_id) 
-    VALUES (?, ?, ?, ?, ? , ?)`;
+    let query = `INSERT INTO tbl_servico (data_servico, valor, observacao, cliente_id, hora_marcada, usuario_id,status_servico) 
+    VALUES (?, ?, ?, ?, ? , ?,'A')`;
 //usaremos o req.body para pegar os parametros enviados pelo usuario atraves do corpo da requisicao
     let parametro = req.body;
 
