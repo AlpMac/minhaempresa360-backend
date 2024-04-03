@@ -18,7 +18,7 @@ import buscaServicoConcluido from "./routers/route.buscaServicoConcluido.js";
 import buscaServicoCancelado from "./routers/route.buscaCancelamentoRealizado.js";
 import routeAddProduto from "./routers/route.AddProdutos.js";
 import routeBuscaCliente from "./routers/route.buscaCliente.js";
-
+import routeAdditemDescricaoServico from "./routers/route.AdditemDescricaoServico.js";
 
 
 const app = express();
@@ -48,7 +48,7 @@ app.use(buscaServicoCancelado); //teste ok
 app.use(routeAddProduto); //teste ok
 app.use(routeBuscaCliente); //teste ok
 
-
+app.use(routeAdditemDescricaoServico); //teste ok
 //Porta que o servidor irá levantar
 app.listen(4513, () => {
   console.log("Servidor rodando na porta 4513");
